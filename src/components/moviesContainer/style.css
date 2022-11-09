@@ -1,0 +1,17 @@
+table {
+  table-layout: fixed;
+  border-collapse: separate !important;
+}
+
+h1 {
+  color: rgb(223, 7, 7);
+  text-shadow: 2px 2px rgb(47, 29, 28);
+  margin-bottom: 50px !important;
+}
+
+h3 {
+  font-size: 20px !important;
+  margin-bottom: 20px !important;
+  color: rgb(14, 5, 5);
+  text-shadow: 1px 1px rgb(141, 141, 141);
+}
