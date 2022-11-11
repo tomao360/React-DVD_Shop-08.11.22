@@ -1,4 +1,5 @@
 import React from "react";
+import "./tableContent.css";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 
@@ -26,7 +27,7 @@ export const TableContent = ({ moviesArr, handleLike, handleDelete }) => {
                 <td>{m.genre}</td>
                 <td>{m.stock}</td>
                 <td>{m.rate}</td>
-                <td>
+                <td className="iconLove">
                   {m.isLike ? (
                     <div
                       onClick={() => {

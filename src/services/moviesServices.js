@@ -33,6 +33,24 @@ const moviesDB = [
     isLike: false,
   },
   { id: 5, title: "Hulk", genre: "Action", stock: 5, rate: 6, isLike: false },
+  { id: 6, title: "Rocky", genre: "Drama", stock: 0, rate: 5, isLike: false },
+  { id: 7, title: "Titanic", genre: "Drama", stock: 3, rate: 7, isLike: false },
+  {
+    id: 8,
+    title: "The Hangover",
+    genre: "Comedy",
+    stock: 5,
+    rate: 6,
+    isLike: false,
+  },
+  {
+    id: 9,
+    title: "Men in Black",
+    genre: "Comedy",
+    stock: 5,
+    rate: 7,
+    isLike: false,
+  },
 ];
 
 //This function gets data from the server

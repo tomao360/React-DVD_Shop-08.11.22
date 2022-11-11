@@ -3,11 +3,26 @@ import { compare } from "../../helpers/helper";
 import { getMoviesFromServer } from "../../services/moviesServices";
 import { TableContent } from "../tableContent/tableContent";
 import "./style.css";
+import { FilterComponent } from "./../filter/filterComponent";
 
 let moviesFromDb = getMoviesFromServer().sort((a, b) => compare(a, b)); //Get the data from the database  //moviesFromDb is an array of movies //It is customary to put data received from the server outside the component
 
 export const MoviesContainer = (props) => {
   const [movies, setMovies] = useState(moviesFromDb);
+
+  const [filter, setFilter] = useState("All");
+
+  const handleFilter = (movieGenre) => {
+    setFilter(movieGenre);
+    if (movieGenre !== "All Movies") {
+      let filteredmovies = moviesFromDb.filter((m) => {
+        return m.genre === movieGenre;
+      });
+      setMovies(filteredmovies);
+    } else {
+      setMovies(moviesFromDb);
+    }
+  };
 
   const handleDelete = (id) => {
     let newData = movies.filter((m) => m.id !== id);
@@ -31,15 +46,18 @@ export const MoviesContainer = (props) => {
     setMovies(newData);
   };
   return (
-    <div>
+    <div className="moviesContainer">
       <h1>DVD Shop</h1>
       <h3>Showing {movies.length} movies in the database of the shop</h3>
-      <TableContent
-        moviesArr={movies}
-        handleLike={handleIsLike}
-        handleDelete={handleDelete}
-      ></TableContent>
-      {/*This is how I pass its values to the TableContent function*/}
+      <div className="movieList">
+        <FilterComponent handleFilter={handleFilter} filter={filter} />
+        <TableContent
+          moviesArr={movies}
+          handleLike={handleIsLike}
+          handleDelete={handleDelete}
+        ></TableContent>
+        {/*This is how I pass its values to the TableContent function*/}
+      </div>
     </div>
   );
 };
